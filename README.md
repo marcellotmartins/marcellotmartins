@@ -33,15 +33,10 @@ const marcello = {
 
 ---
 
-### 📊 GitHub Stats
+### 📊 Most used languages
 
 <p align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=marcellotmartins&show_icons=true&hide_border=true&count_private=true&include_all_commits=true&theme=github_dark&title_color=4ade80&icon_color=4ade80" alt="Stats" />
   <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=marcellotmartins&layout=compact&hide_border=true&theme=github_dark&title_color=4ade80" alt="Top languages" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=marcellotmartins&hide_border=true&theme=github-dark&ring=4ade80&fire=4ade80&currStreakLabel=4ade80" alt="Streak" />
 </p>
 
 ---
