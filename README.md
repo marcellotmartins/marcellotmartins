@@ -4,16 +4,6 @@
   <em>Software Developer • São Paulo, Brazil 🇧🇷</em>
 </p>
 
-<p align="center">
-  <a href="https://github.com/marcellotmartins?tab=followers">
-    <img src="https://img.shields.io/github/followers/marcellotmartins?label=Followers&style=for-the-badge&color=2e7d32&labelColor=0d1117" alt="Followers" />
-  </a>
-  <a href="https://github.com/marcellotmartins?tab=stars">
-    <img src="https://img.shields.io/github/stars/marcellotmartins?label=Stars&style=for-the-badge&color=2e7d32&labelColor=0d1117" alt="Stars" />
-  </a>
-  <img src="https://komarev.com/ghpvc/?username=marcellotmartins&label=Profile%20views&style=for-the-badge&color=2e7d32&labelColor=0d1117" alt="Profile views" />
-</p>
-
 ---
 
 ### 🚀 About me
@@ -40,17 +30,6 @@ const marcello = {
 <p align="center">
   <img src="https://skillicons.dev/icons?i=ts,js,cpp,lua,nodejs,react,html,css,git,github,vscode" alt="Skills" />
 </p>
-
----
-
-### 📌 Featured projects
-
-| Project | Description | Tech |
-| :------ | :---------- | :--- |
-| [**grade-system**](https://github.com/marcellotmartins/grade-system) | Complete school grading system with student management, GPA tracking and an interactive dashboard | `TypeScript` |
-| [**athenaframework**](https://github.com/marcellotmartins/athenaframework) | Personal framework focused on developer productivity | `TypeScript` |
-| [**debugprop**](https://github.com/marcellotmartins/debugprop) | Simple script to debug props through commands | `Lua` |
-| [**PristonTale-EU-main**](https://github.com/marcellotmartins/PristonTale-EU-main) | Game server (C++ fork) | `C++` |
 
 ---
 
