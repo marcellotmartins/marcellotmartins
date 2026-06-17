@@ -18,17 +18,36 @@ jobs:
       - name: Update total commits badge
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
         run: |
           set -e
-          count=$(gh api -X GET "search/commits?q=author:${{ github.repository_owner }}" \
-            -H "Accept: application/vnd.github.cloak-preview" --jq '.total_count')
-          echo "Total commits: $count"
 
-          # insert thousands separators: 4894 -> 4,894
-          formatted=$(echo "$count" | sed ':a;s/\B[0-9]\{3\}\>/,&/;ta')
+          query='query($login:String!,$from:DateTime!,$to:DateTime!){ user(login:$login){ contributionsCollection(from:$from,to:$to){ totalCommitContributions restrictedContributionsCount } } }'
+
+          start_year=$(gh api users/"$OWNER" --jq '.created_at' | cut -c1-4)
+          end_year=$(date -u +%Y)
+
+          total=0
+          for y in $(seq "$start_year" "$end_year"); do
+            c=$(gh api graphql -f query="$query" \
+                  -f login="$OWNER" \
+                  -f from="${y}-01-01T00:00:00Z" \
+                  -f to="${y}-12-31T23:59:59Z" \
+                  --jq '.data.user.contributionsCollection.totalCommitContributions + .data.user.contributionsCollection.restrictedContributionsCount')
+            total=$((total + c))
+          done
+          echo "Total commit contributions: $total"
+
+          # safety guard: never overwrite the badge with a clearly bogus low number
+          if [ "$total" -lt 100 ]; then
+            echo "Count looks wrong ($total) — skipping update."
+            exit 0
+          fi
+
+          # insert thousands separators: 4738 -> 4,738
+          formatted=$(echo "$total" | sed ':a;s/\B[0-9]\{3\}\>/,&/;ta')
           encoded=${formatted//,/%2C}
 
-          # rewrite the badge number in README.md
           sed -i -E "s|Total%20commits-[^-]*-2e7d32|Total%20commits-${encoded}-2e7d32|" README.md
 
           if git diff --quiet; then
