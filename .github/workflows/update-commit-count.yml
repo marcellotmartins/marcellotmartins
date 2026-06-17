@@ -1,0 +1,42 @@
+name: Update commit count
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"   # runs every 12 hours
+  workflow_dispatch:           # allows manual run from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update total commits badge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          count=$(gh api -X GET "search/commits?q=author:${{ github.repository_owner }}" \
+            -H "Accept: application/vnd.github.cloak-preview" --jq '.total_count')
+          echo "Total commits: $count"
+
+          # insert thousands separators: 4894 -> 4,894
+          formatted=$(echo "$count" | sed ':a;s/\B[0-9]\{3\}\>/,&/;ta')
+          encoded=${formatted//,/%2C}
+
+          # rewrite the badge number in README.md
+          sed -i -E "s|Total%20commits-[^-]*-2e7d32|Total%20commits-${encoded}-2e7d32|" README.md
+
+          if git diff --quiet; then
+            echo "No change needed."
+          else
+            git config user.name  "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add README.md
+            git commit -m "chore: update total commit count to ${formatted}"
+            git push
+          fi
