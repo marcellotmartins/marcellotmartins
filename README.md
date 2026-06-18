@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Total%20commits-7%2C075-2e7d32?style=flat-square&labelColor=0d1117" alt="Total commits" />
+  <img src="https://img.shields.io/badge/Total%20commits-7%2C107-2e7d32?style=flat-square&labelColor=0d1117" alt="Total commits" />
 </p>
 
 ---
