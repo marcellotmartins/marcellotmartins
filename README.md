@@ -34,7 +34,10 @@ const marcello = {
 ### 📊 Most used languages
 
 <p align="center">
-  <img height="160em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=marcellotmartins&layout=compact&hide_border=true&theme=github_dark&title_color=4ade80" alt="Top languages" />
+  <img src="https://img.shields.io/badge/TypeScript-39%25-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Lua-36%25-2C2D72?style=flat-square&logo=lua&logoColor=white" alt="Lua" />
+  <img src="https://img.shields.io/badge/JavaScript-17%25-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/CSS-5%25-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS" />
 </p>
 
 ---
